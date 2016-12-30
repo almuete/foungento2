@@ -1,0 +1,1 @@
+alert('design/frontend/Foungento/default/web/js/custom.js enabled');

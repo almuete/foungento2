@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!--
+            @Desc: Extra  Notification Popup
+        -->
+        <referenceBlock name="authentication-popup" remove="true" />
+
+        <move element="top.links" destination="header.top.links" after="-"/>
+        <move element="header-wrapper" destination="header.minicart" />
+
+         <referenceContainer name="header.container">
+
+            <container name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="foungento-panel-header row">
+                
+                <container name="header.skip" label="Header Skip" htmlTag="div" htmlClass="foungento-skip small-12 medium-6 large-6 columns" before="-">
+                    <block class="Magento\Framework\View\Element\Template" name="skip_to_content" template="Magento_Theme::html/skip.phtml">
+                        <arguments>
+                            <argument name="target" xsi:type="string">contentarea</argument>
+                            <argument name="label" translate="true" xsi:type="string">Skip to Content</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="header.switch" label="Header Switch" htmlTag="div" htmlClass="foungento-currency small-12 medium-6 large-6 columns">
+                    <block class="Magento\Directory\Block\Currency" name="currency" before="store_language" template="currency.phtml"/>
+                </container>
+
+                <container name="header.top.links" label="Header Top Links" htmlTag="div" htmlClass="foungento-top-links small-12 medium-12 large-12 columns">
+                    <block class="Magento\Framework\View\Element\Html\Links" name="top.links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">header links menu float-right</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+            </container>
+
+            <container name="header-wrapper-content" label="Page Header" as="header.wrapper.content" htmlTag="div" htmlClass="header content">
+                <container name="page-header-wrapper" label="Page Header Wrapper" as="page.header.wrapper" htmlTag="div" htmlClass="page-header-wrapper row">
+                    <container name="header-logo" label="Page Header" as="header.logo" htmlTag="div" htmlClass="foungento-logo small-12 medium-6 large-3 columns" before="header.minicart">
+                        <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                            <arguments>
+                                <argument name="logo_img_width" xsi:type="number">189</argument>
+                                <argument name="logo_img_height" xsi:type="number">64</argument>
+                            </arguments>
+                        </block>
+                    </container>
+
+
+                    <container name="header.search" label="Header Search" htmlTag="div" htmlClass="foungento-search small-12 medium-6 large-6 columns" before="header.minicart">
+                        <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml" />
+                    </container>
+
+                    <container name="header.minicart" label="Header Minicart" htmlTag="div" htmlClass="foungento-minicart large-3 columns" />
+                </container>
+            </container>
+
+        </referenceContainer>
+
+
+        <referenceContainer name="page.top">
+            <container name="header.page.top" label="Header Page Top" htmlTag="div" htmlClass="header-navigation-top">
+                <container name="navivation" label="Top Navigation" htmlTag="div" htmlClass="foungento-navigation row">
+                    <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
+                        
+                        <arguments>
+                            <argument name="group_name" xsi:type="string">navigation-sections</argument>
+                            <argument name="group_css" xsi:type="string">nav-sections</argument>
+                        </arguments>
+
+                        <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                        </block>
+
+                        <referenceBlock name="store.links" remove="true" />
+                        <referenceBlock name="store.settings.currency" remove="true" />
+
+                    </block>
+
+                    <container name="breadcrumbs.wrapper" label="Header Breadcrumbs" htmlTag="div" htmlClass="foungento-breadcrumbs large-12 columns">
+                        <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+                    </container>
+
+                </container>
+            </container>
+        </referenceContainer>
+
+
+        <referenceContainer name="columns.top">
+            <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
+            <container name="page.messages" htmlTag="div" htmlClass="foungent-page-messages page messages large-12 columns">
+                <block class="Magento\Framework\View\Element\Template" name="ajax.message.placeholder" template="Magento_Theme::html/messages.phtml"/>
+                <block class="Magento\Framework\View\Element\Messages" name="messages" as="messages" template="Magento_Theme::messages.phtml"/>
+            </container>
+        </referenceContainer>
+
+
+        <referenceContainer name="footer-container">
+            <container name="footer.page" as="footer_page" label="Page Footer" htmlTag="div" htmlClass="foungento-footer footer row">
+                <container name="footer.links" as="footer_links" label="Links Footer" htmlTag="div" htmlClass="foungento-links large-6 columns">
+                    <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="switch/stores.phtml"/>
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">footer links</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer.subscriber.page" as="footer_subscriber_page" label="Subscriber Page Footer" htmlTag="div" htmlClass="foungento-subscriber large-6 columns">
+                    <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="subscribe.phtml"/>
+                </container>
+
+                <!--container name="footer.copyright" as="footer_copyright" label="Links Footer" htmlTag="div" htmlClass="foungento-copyright large-12 columns" after="-">
+                    <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+                </container>
+                
+                <container name="footer.bugs" as="footer_bugs" label="Bugs Footer" htmlTag="div" htmlClass="foungento-bugs large-12 columns" after="-">
+                    <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" />
+                </container -->
+
+            </container>
+        </referenceContainer>
+
+        <container name="footer.copyright.bugs" as="footer_copyright_bugs" label="Page Footer Copyright Bugs" htmlTag="div" htmlClass="foungento-copyright-bugs">
+            <container name="footer.copyright.bugs.wrapper" as="footer_copyright_bugs_wrapper" label="Page Footer Copyright Bugs Wrapper" htmlTag="div" htmlClass="foungento-copyright-bugs-wrapper row">
+                <container name="footer.copyright" as="footer_copyright" label="Links Footer" htmlTag="div" htmlClass="foungento-copyright small-12 medium-12 large-12 columns" after="-">
+                    <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+                </container>
+
+                <container name="footer.bugs" as="footer_bugs" label="Bugs Footer" htmlTag="div" htmlClass="foungento-bugs large-12 columns" after="-">
+                    <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" />
+                </container>
+            </container>
+        </container>
+
+
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Translation\Block\Js" name="translate" template="Foungento_Theme::/appf.phtml"/>
+        </referenceContainer>
+
+
+
+
+
+    </body>
+</page> 
+
+
+<!--referenceContainer name="footer-container">
+    <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
+        <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="switch/stores.phtml"/>
+        <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+            <arguments>
+                <argument name="css_class" xsi:type="string">footer links</argument>
+            </arguments>
+        </block>
+        <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+        <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" />
+    </container>
+</referenceContainer>
+< page>
+    <body>
+
+
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Translation\Block\Js" name="translate" template="Foungento_Theme::/appf.phtml"/>
+        </referenceContainer>
+
+        <referenceBlock name="authentication-popup" remove="true" />
+        <move element="top.links" destination="header.top.links" after="-"/>
+        <move element="footer" destination="footer.page" />
+        <move element="header-wrapper" destination="header.minicart" />
+
+        
+
+
+
+
+
+        <referenceContainer name="header.container">
+
+            <container name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="foungento-panel-header row">
+                <container name="header.skip" label="Header Skip" htmlTag="div" htmlClass="foungento-skip medium-6 small-6 large-10 columns" before="-">
+                    <block class="Magento\Framework\View\Element\Template" name="skip_to_content" template="Magento_Theme::html/skip.phtml">
+                        <arguments>
+                            <argument name="target" xsi:type="string">contentarea</argument>
+                            <argument name="label" translate="true" xsi:type="string">Skip to Content</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="header.switch" label="Header Switch" htmlTag="div" htmlClass="foungento-currency small-6 medium-6 large-2 columns">
+                    <block class="Magento\Directory\Block\Currency" name="currency" before="store_language" template="currency.phtml"/>
+                </container>
+
+                <container name="header.top.links" label="Header Top Links" htmlTag="div" htmlClass="foungento-top-links small-12 medium-12 large-12 columns">
+                    <block class="Magento\Framework\View\Element\Html\Links" name="top.links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">header links menu align-right</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+
+
+            <container name="header-wrapper-content" label="Page Header" as="header.wrapper.content" htmlTag="div" htmlClass="header content row">
+
+                <container name="header-logo" label="Page Header" as="header.logo" htmlTag="div" htmlClass="foungento-logo small-12 medium-6 large-4 columns" before="header.minicart">
+                    <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                        <arguments>
+                            <argument name="logo_img_width" xsi:type="number">189</argument>
+                            <argument name="logo_img_height" xsi:type="number">64</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="header.search" label="Header Search" htmlTag="div" htmlClass="foungento-search small-12 medium-6 large-4 columns" before="header.minicart">
+                    <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml" />
+                </container>
+
+                <container name="header.minicart" label="Header Minicart" htmlTag="div" htmlClass="foungento-minicart large-4 columns" />
+
+            </container>
+
+        </referenceContainer>
+
+        <referenceContainer name="page.top">
+            <container name="header.page.top" label="Header Page Top" htmlTag="div" htmlClass="foungento-page-top">
+                <container name="navivation" label="Top Navigation" htmlTag="div" htmlClass="foungento-navigation row">
+                    <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
+                        
+                        <arguments>
+                            <argument name="group_name" xsi:type="string">navigation-sections</argument>
+                            <argument name="group_css" xsi:type="string">nav-sections</argument>
+                        </arguments>
+
+                        <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                        </block>
+
+                        <referenceBlock name="store.links" remove="true" />
+                        <referenceBlock name="store.settings.currency" remove="true" />
+
+                    </block>
+
+                    <container name="breadcrumbs.wrapper" label="Header Breadcrumbs" htmlTag="div" htmlClass="foungento-breadcrumbs large-12 columns">
+                        <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+                    </container>
+
+                </container>
+            </container>
+        </referenceContainer>
+
+
+        <referenceContainer name="footer-container">
+            <container name="footer.page" as="footer_page" label="Page Footer" htmlTag="div" htmlClass="foungento-footer footer row">
+               
+
+                <container name="footer.links" as="footer_links" label="Links Footer" htmlTag="div" htmlClass="foungento-links large-8 columns">
+                    <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="switch/stores.phtml"/>
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">footer links</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer.subscriber.page" as="footer_subscriber_page" label="Subscriber Page Footer" htmlTag="div" htmlClass="foungento-subscriber large-4 columns">
+                    <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="subscribe.phtml"/>
+                </container>
+
+                <container name="footer.copyright" as="footer_copyright" label="Links Footer" htmlTag="div" htmlClass="foungento-copyright large-12 columns" after="-">
+                    <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+                </container>
+                
+                <container name="footer.bugs" as="footer_bugs" label="Bugs Footer" htmlTag="div" htmlClass="foungento-bugs large-12 columns" after="-">
+                    <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" />
+                </container>
+            </container>
+        </referenceContainer>
+
+
+
+    </body>
+</page>
+-->
+

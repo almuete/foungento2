@@ -1,0 +1,85 @@
+<?php
+/**
+ * Copyright © 2015 foungentocommerce. All rights reserved.
+ */
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Foungento\Theme\Block\Index\Index
+ */
+?>
+update content from Theme\view\frontend\templates\index\index.phtml
+<br/><br/><br/>
+<h1>Foundation</h1>
+<div class="row">
+  <div class="large-6 columns">large-6 columns</div>
+  <div class="large-6 columns">large-6 columns</div>
+
+  <div class="large-12 columns">
+    <ul class="accordion" data-accordion role="tablist">
+      <li class="accordion-item is-active">
+        <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
+        <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="  panel1d">Accordion 1</a>
+        <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
+        <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
+          Panel 1. Lorem ipsum dolor
+        </div>
+      </li>
+      <li class="accordion-item">
+        <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
+        <a href="#panel2d" role="tab" class="accordion-title" id="panel2d-heading" aria-controls="  panel2d">Accordion 2</a>
+        <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
+        <div id="panel2d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel2d-heading">
+          Panel 1. Lorem ipsum dolor
+        </div>
+      </li>
+    </ul>
+
+      <p><a data-open="exampleModal1">Click me for a modal</a></p>
+
+      <div class="reveal" id="exampleModal1" data-reveal>
+        <h1>Awesome. I Have It.</h1>
+        <p class="lead">Your couch. It is mine.</p>
+        <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  </div>
+
+
+  <div class="docs-code-live">
+      <div class="row">
+        <div class="parent" style="overflow: hidden; height: 141px; border: 1px solid transparent;">
+
+          <div class="large-3 columns">
+            <span class="secondary badge thing-one"><img class="_yeti slow" src="http://dev.test-min.com/foundation/6/yeti.svg" /></span>
+          </div>
+
+          <div class="large-3 columns">
+            <span class="success badge thing-two"><img class="_yeti slow" src="http://dev.test-min.com/foundation/6/yeti.svg" /></span>
+          </div>
+
+          <div class="large-3 columns">
+            <span class="alert badge thing-three"><img class="_yeti slow" src="http://dev.test-min.com/foundation/6/yeti.svg" /></span>
+          </div>
+
+          <div class="large-3 columns">
+            <span class="alert badge thing-four"><img class="_yeti slow" src="http://dev.test-min.com/foundation/6/yeti.svg" /></span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+</div>
+
+<button id="showAlert">alert</button>
+
+
+
+

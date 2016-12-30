@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')):?>
+    <div class="product info detailed">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items">
+
+            <ul class="tabs" data-tabs id="product-description-tabs">
+            <?php foreach ($detailedInfoGroup as $name):?>
+                <?php
+                    $alias = $layout->getElementAlias($name);
+                    $label = $block->getChildData($alias, 'title');
+                    $is_active = 'product.info.description';
+                ?>
+                
+                <li class="tabs-title <?php echo ($alias == $is_active) ? 'is-active' : ''; ?>">
+                    <a href="#<?php echo str_replace('.', '-', $alias); ?>-tab"><?php /* @escapeNotVerified */ echo $label; ?></a>
+                </li>
+            <?php endforeach;?>
+            </ul>
+
+            <div class="tabs-content" data-tabs-content="product-description-tabs">
+                <?php foreach ($detailedInfoGroup as $name):?>
+                    <?php
+                        $html = $layout->renderElement($name);
+                        if (!trim($html)) {
+                            continue;
+                        }
+                        $alias = $layout->getElementAlias($name);
+                        $label = $block->getChildData($alias, 'title');
+                        $is_active = 'product.info.description';
+                    ?>
+                    <div class="tabs-panel <?php echo ($alias == $is_active) ? 'is-active' : ''; ?>" id="<?php echo str_replace('.', '-', $alias); ?>-tab">
+                        <?php /* @escapeNotVerified */ echo $html; ?>
+                    </div>
+                <?php endforeach;?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

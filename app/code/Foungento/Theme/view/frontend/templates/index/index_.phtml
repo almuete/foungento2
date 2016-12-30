@@ -1,0 +1,254 @@
+<?php
+/**
+ * Copyright © 2015 foungentocommerce. All rights reserved.
+ */
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Foungento\Theme\Block\Index\Index
+ */
+?>
+update content from Theme\view\frontend\templates\index\index.phtml
+<br/><br/><br/>
+<h1>Foundation</h1>
+<div class="row">
+  <div class="large-6 columns">large-6 columns</div>
+  <div class="large-6 columns">large-6 columns</div>
+
+  <div class="large-12 columns">
+    <ul class="accordion" data-accordion role="tablist">
+      <li class="accordion-item is-active">
+        <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
+        <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="  panel1d">Accordion 1</a>
+        <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
+        <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
+          Panel 1. Lorem ipsum dolor
+        </div>
+      </li>
+      <li class="accordion-item">
+        <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
+        <a href="#panel2d" role="tab" class="accordion-title" id="panel2d-heading" aria-controls="  panel2d">Accordion 2</a>
+        <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
+        <div id="panel2d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel2d-heading">
+          Panel 1. Lorem ipsum dolor
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+ 
+
+  <div class="large-12 columns">
+    <p><a data-toggle="exampleModal11">Click me for a modal</a></p>
+
+    <div class="reveal" id="exampleModal11" data-reveal>
+      <h1>Awesome!</h1>
+      <p class="lead">I have another modal inside of me!</p>
+      <a class="button" data-toggle="exampleModal111">Click me for another modal!</a>
+      <button class="close-button" data-close aria-label="Close reveal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="reveal" id="exampleModal111" data-reveal>
+      <h2>ANOTHER MODAL!!!</h2>
+      <button class="close-button" data-close aria-label="Close reveal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<br/><br/><br/>
+<h1>Magento</h1>
+
+<script type="text/javascript">
+    require(['jquery','custom'],function($,customm,wimin,foundation) {
+        //$(document).foundation();
+
+        $(document).ready(function() {
+        	/*
+			 * Modal
+        	 */
+    		$("#openModal").click(function() {
+    			Custom.myModal();
+    		});
+
+    		/*
+			 * Alert
+    		 */
+    		$("#showAlert").click(function() {
+    			Custom.myAlert();
+    		});
+
+    		/*
+			 * Alert
+    		 */
+    		$("#openConfirmation").click(function() {
+    			Custom.myConfirm();
+    		});
+
+    		/*
+			 * myPrompt
+    		 */
+    		$("#openPrompt").click(function() {
+    			Custom.myPrompt();
+    		});
+    		
+    		/*
+    		 * Accordion
+    		 */
+			$("#accordion").accordion();
+
+    		/*
+    		 * Collapsible
+    		 */
+			/*$(".collapsible").collapsible({
+				content: ".content",
+				header: ".header",
+				"icons": {"header": "plus", "activeHeader": "minus" }
+			});*/
+
+    		/*
+    		 * Dialog
+    		 */
+			$("#dialog").dialog({ autoOpen: false });
+			$("#openDialog").click(function() {
+				$("#dialog").dialog("open");
+			});
+
+			//$("#list").list();
+
+    		/*
+    		 * Navigation menu
+    		 */
+			$("#menu").menu();
+        });
+    });
+
+</script>
+<button id="showAlert">alert</button>
+<button id="openModal">modal</button>
+<button id="openPrompt">prompt</button>
+<div id="modal_content" style="display: none">content</div>
+<button id="openConfirmation">confirmation</button>
+<button id="openDialog">dialog</button>
+<div id="dialog" title="Dialog Title">I'm a dialog</div>
+
+<br/>
+
+<h2>Accordion</h2>
+<div id="accordion">
+    <div data-role="title">
+        <div data-role="trigger">
+            <span>Title 1</span>
+        </div>
+    </div>
+    <div data-role="content">Content 1</div>
+  
+    <div data-role="title">
+        <div data-role="trigger">
+            <span>Title 2</span>
+        </div>
+    </div>
+    <div data-role="content">Content 2</div>
+  
+   	<div data-role="title">
+        <div data-role="trigger">
+            <span>Title 3</span>
+        </div>
+    </div>
+    <div data-role="content">Content 3</div>
+</div>
+
+<br/>
+
+<h2>Collapsible</h2>
+<div class="collapsible" data-role="collapsible" data-collapsed="false">
+    <div class="header">
+        <span>Title 1</span>
+    </div>
+    <div class="content">Content 1</div>
+</div>
+
+<div class="collapsible">
+    <div class="header">
+        <span>Title 2</span>
+    </div>
+    <div class="content">Content 2</div>
+</div>
+
+<br/>
+
+<h2>List - not done</h2>
+<ul id="list" data-role="listview">
+  <li><a href="acura.html">Acura</a></li>
+  <li><a href="audi.html">Audi</a></li>
+  <li><a href="bmw.html">BMW</a></li>
+</ul>
+
+<br/>
+
+<h2>Menu widget - not done</h2>
+---
+
+<br/>
+
+<h2>Navigation widget</h2>
+<ul id="menu">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3
+    <ul>
+      <li>Item 3-1</li>
+      <li>Item 3-2</li>
+      <li>Item 3-3</li>
+      <li>Item 3-4</li>
+      <li>Item 3-5</li>
+    </ul>
+  </li>
+  <li>Item 4</li>
+  <li>Item 5</li>
+</ul>
+
+<br>
+
+<h2>Quick Search widget - not done</h2>
+---
+
+</br>
+
+<h2>Tabs widget</h2>
+<div data-role="page" id="page1">
+  <div data-role="header">
+    <h1>jQuery Mobile Example</h1>
+  </div>
+  <div role="main" class="ui-content" data-mage-init='{"tabs":{"openedState":"active"}}'>
+    <div data-role="tabs">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#fragment-1" class="ui-btn-active">One</a></li>
+          <li><a href="#fragment-2">Two</a></li>
+          <li><a href="#fragment-3">Three</a></li>
+        </ul>
+      </div>
+      <div id="fragment-1">
+        <p>This is the content of the tab 'One', with the id fragment-1.</p>
+      </div>
+      <div id="fragment-2">
+        <p>This is the content of the tab 'Two', with the id fragment-2.</p>
+      </div>
+      <div id="fragment-3">
+        <p>This is the content of the tab 'Three', with the id fragment-3.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

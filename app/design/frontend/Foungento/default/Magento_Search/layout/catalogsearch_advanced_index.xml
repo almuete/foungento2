@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Advanced Search</title>
+    </head>
+    <update handle="page_calendar"/>
+    <body>
+        <referenceContainer name="content">
+            <container name="search.advanced.expanded.row" as="search_advanced_wrapper_row" label="Search Advanced Expanded Row" htmlTag="div" htmlClass="expanded row">
+                <container name="search.advanced.row" as="search_advanced_row" label="Search Advanced Row" htmlTag="div" htmlClass="foungento-search-advanced-row row">
+                    <container name="search.advanced.container" as="search_advanced_container" label="Search Advanced Container" htmlTag="div" htmlClass="foungento-search-advanced-container small-12 small-centered medium-8 medium-centered large-6 large-centered columns ">
+                        <block class="Magento\CatalogSearch\Block\Advanced\Form" name="catalogsearch_advanced_form" template="advanced/form.phtml"/>
+                        <block class="Magento\Framework\View\Element\Html\Calendar" name="html_calendar" as="html_calendar" template="Magento_Theme::js/calendar.phtml"/>
+                    </container>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,38 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+<div class="large-12 columns">
+	<nav class="show-for-large navigation" role="navigation">
+	    <ul class="dropdown menu" data-dropdown-menu>
+	        <?php /* @escapeNotVerified */ echo $_menu; ?>
+	    </ul>
+	</nav>
+
+	<nav class="show-for-medium-only navigation" role="navigation">
+	    <ul class="dropdown menu" data-dropdown-menu>
+	        <?php /* @escapeNotVerified */ echo $_menu; ?>
+	    </ul>
+	</nav>
+
+	<nav class="show-for-small-only navigation" role="navigation">
+	    <ul class="vertical menu" data-accordion-menu>
+	        <?php /* @escapeNotVerified */ echo $_menu; ?>
+	    </ul>
+	</nav>
+</div>
+

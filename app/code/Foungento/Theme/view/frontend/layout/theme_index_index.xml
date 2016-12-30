@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	<head>      
+    	<!-- css src="Foungento_Theme::js/custom.js"/ -->  
+	</head> 
+     <body>		
+        <referenceContainer name="content">			
+			<block class="Foungento\Theme\Block\Index\Index" name="index_index" template="index/index.phtml">
+			</block>
+        </referenceContainer>      
+    </body>
+
+</page>

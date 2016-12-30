@@ -1,0 +1,15 @@
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="foungento-opc-progress-bar small-12 medium-12 large-12 columns">
+	<ul class="opc-progress-bar opc-progress-checkout">
+	    <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
+	        <li class="opc-progress-bar-item" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+	            <span data-bind="text: item.title, click: $parent.navigateTo"></span>
+	        </li>
+	    <!-- /ko -->
+	</ul>
+</div>
