@@ -217,33 +217,24 @@ define([
 
 
 
-	$(window).scroll(function() {
+    $(window).scroll(function() {
         if($(window).scrollTop() == $(document).height() - $(window).height()) {
             if(typeof jQuery(".pages-items:last li.current").next().find('a').attr('href') != 'undefined') {
-                /* Removed Current */
-
-                //console.log(jQuery(".pages-items:last li.current").next().find('a').attr('href'));
-				var _next_url = jQuery(".pages-items:last li.current").next().find('a').attr('href');
-				$(".pages-items:last li.current").removeClass('current');
+                var _next_url = jQuery(".pages-items:last li.current").next().find('a').attr('href');
+                $(".pages-items:last li.current").removeClass('current');
                 $.ajax({
                     url: _next_url,
                     context: document.body,
                     cache: true,
                 }).done(function(html) {
                     $(".pages-items:last li.current").removeClass('current');
-                    //console.log($(html).find('.products.list'));
-                    //console.log($(html).find('.items.pages-items').html());
-                    
                     $('.items.pages-items').html($(html).find('.items.pages-items').html());
-                   	
-                   	
-                   	$(".products.list").append($(html).find('.items.pages-items').html());
-                                            
+                   	$(".ol.products").append($(html).find('ol.products').html());
                     console.log('done');
                 }).complete(function() {
                 	console.log('complete');
                 }).success(function(html) {
-                    console.log('success');
+                    console.log('succdeploy:mode:showess');
                 });
 
             }

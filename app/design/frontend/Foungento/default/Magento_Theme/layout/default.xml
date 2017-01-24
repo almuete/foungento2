@@ -50,9 +50,9 @@
                     </container>
 
 
-                    <container name="header.search" label="Header Search" htmlTag="div" htmlClass="foungento-search small-12 medium-6 large-6 columns" before="header.minicart">
+                    <!--container name="header.search" label="Header Search" htmlTag="div" htmlClass="foungento-search small-12 medium-6 large-6 columns" before="header.minicart">
                         <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml" />
-                    </container>
+                    </container-->
 
                     <container name="header.minicart" label="Header Minicart" htmlTag="div" htmlClass="foungento-minicart large-3 columns" />
                 </container>
@@ -64,6 +64,7 @@
         <referenceContainer name="page.top">
             <container name="header.page.top" label="Header Page Top" htmlTag="div" htmlClass="header-navigation-top">
                 <container name="navivation" label="Top Navigation" htmlTag="div" htmlClass="foungento-navigation row">
+                    
                     <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
                         
                         <arguments>
@@ -71,13 +72,19 @@
                             <argument name="group_css" xsi:type="string">nav-sections</argument>
                         </arguments>
 
+                        <!-- SEARCH FORM MINI -->
                         <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                            <container name="header.search" label="Header Search" htmlTag="div" htmlClass="foungento-search small-12 medium-6 large-6 columns" before="header.minicart">
+                                <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml" />
+                            </container>
                         </block>
 
                         <referenceBlock name="store.links" remove="true" />
                         <referenceBlock name="store.settings.currency" remove="true" />
 
                     </block>
+
+
 
                     <container name="breadcrumbs.wrapper" label="Header Breadcrumbs" htmlTag="div" htmlClass="foungento-breadcrumbs large-12 columns">
                         <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>

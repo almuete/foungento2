@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2015 Magento. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -19,6 +19,7 @@
 <?php $currentCurrencyCode = $block->getCurrentCurrencyCode(); ?>
 <?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : ''?>
 <div class="switcher currency switcher-currency clearfix" id="switcher-currency<?php /* @escapeNotVerified */ echo $id?>">
+    <strong class="label switcher-label"><span><?php /* @escapeNotVerified */ echo __('Currency') ?></span></strong>
     <div class="actions dropdown options switcher-options float-right">
         <div class="action toggle switcher-trigger" id="switcher-currency-trigger<?php /* @escapeNotVerified */ echo $id?>">
             <strong class="language-<?php echo $block->escapeHtml($block->getCurrentCurrencyCode()) ?>">
@@ -40,7 +41,6 @@
                 <?php endif; ?>
             <?php endforeach; ?>
         </ul>
-    </div>&nbsp;
-    <strong class="label switcher-label float-right"><span><?php /* @escapeNotVerified */ echo __('Currency') ?></span></strong>
+    </div>
 </div>
 <?php endif; ?>

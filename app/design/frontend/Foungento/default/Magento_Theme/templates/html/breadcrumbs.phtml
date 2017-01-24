@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2015 Magento. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -8,23 +8,23 @@
 
 ?>
 <?php if ($crumbs && is_array($crumbs)) : ?>
-<nav aria-label="You are here:" role="navigation">
-    <div class="breadcrumbs-container">
-         <ul class="breadcrumbs">
-            <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
-                <li class="item <?php /* @escapeNotVerified */ echo $crumbName ?>">
-                <?php if ($crumbInfo['link']) : ?>
-                    <a href="<?php /* @escapeNotVerified */ echo $crumbInfo['link'] ?>" title="<?php echo $block->escapeHtml($crumbInfo['title']) ?>">
-                        <?php echo $block->escapeHtml($crumbInfo['label']) ?>
-                    </a>
-                <?php elseif ($crumbInfo['last']) : ?>
-                    <strong><?php echo $block->escapeHtml($crumbInfo['label']) ?></strong>
-                <?php else: ?>
-                    <?php echo $block->escapeHtml($crumbInfo['label']) ?>
-                <?php endif; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-</nav>
+<div class="breadcrumbs">
+	<div class="breadcrumbs-container">
+		<ul class="breadcrumbs">
+		    <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+		        <li class="item <?php /* @escapeNotVerified */ echo $crumbName ?>">
+		        <?php if ($crumbInfo['link']) : ?>
+		            <a href="<?php /* @escapeNotVerified */ echo $crumbInfo['link'] ?>" title="<?php echo $block->escapeHtml($crumbInfo['title']) ?>">
+		                <?php echo $block->escapeHtml($crumbInfo['label']) ?>
+		            </a>
+		        <?php elseif ($crumbInfo['last']) : ?>
+		            <strong><?php echo $block->escapeHtml($crumbInfo['label']) ?></strong>
+		        <?php else: ?>
+		            <?php echo $block->escapeHtml($crumbInfo['label']) ?>
+		        <?php endif; ?>
+		        </li>
+		    <?php endforeach; ?>
+		</ul>
+	</div>
+</div>
 <?php endif; ?>

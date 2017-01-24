@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2015 Magento. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -17,17 +17,6 @@ use Magento\Catalog\Model\Product\ProductList\Toolbar;
 ?>
 <div class="foungento-toolbar-sorter toolbar-sorter sorter small-12 medium-4 large-4 float-right columns">
     <label class="sorter-label label" for="sorter"><?php /* @escapeNotVerified */ echo __('Sort By') ?></label>
-
-    <?php if ($block->getCurrentDirection() == 'desc'): ?>
-        <a title="<?php /* @escapeNotVerified */ echo __('Set Ascending Direction') ?>" href="#" class="action sorter-action sort-desc" data-role="direction-switcher" data-value="asc">
-            <span><?php /* @escapeNotVerified */ echo __('Set Ascending Direction') ?></span>
-        </a>
-    <?php else: ?>
-        <a title="<?php /* @escapeNotVerified */ echo __('Set Descending Direction') ?>" href="#" class="action sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
-            <span><?php /* @escapeNotVerified */ echo __('Set Descending Direction') ?></span>
-        </a>
-    <?php endif; ?>
-
     <select id="sorter" data-role="sorter" class="sorter-options">
         <?php foreach ($block->getAvailableOrders() as $_key => $_order): ?>
             <option value="<?php /* @escapeNotVerified */ echo $_key; ?>"
@@ -39,5 +28,13 @@ use Magento\Catalog\Model\Product\ProductList\Toolbar;
             </option>
         <?php endforeach; ?>
     </select>
-    
+    <?php if ($block->getCurrentDirection() == 'desc'): ?>
+        <a title="<?php /* @escapeNotVerified */ echo __('Set Ascending Direction') ?>" href="#" class="action sorter-action sort-desc" data-role="direction-switcher" data-value="asc">
+            <span><?php /* @escapeNotVerified */ echo __('Set Ascending Direction') ?></span>
+        </a>
+    <?php else: ?>
+        <a title="<?php /* @escapeNotVerified */ echo __('Set Descending Direction') ?>" href="#" class="action sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
+            <span><?php /* @escapeNotVerified */ echo __('Set Descending Direction') ?></span>
+        </a>
+    <?php endif; ?>
 </div>
